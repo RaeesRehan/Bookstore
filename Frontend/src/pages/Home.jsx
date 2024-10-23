@@ -58,7 +58,7 @@ const Home = () => {
 
     <div className="bg-themeBlue min-h-[100vh] p-4 grid place-items-center gap-4">
    
-   <div className="text-white">Create New Book 
+   <div className="text-white"> Create New Book 
         <Link to={`/books/create/`} >
             <button
           class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
@@ -69,13 +69,13 @@ const Home = () => {
             </Link>
         </div>
 
-      <div>
+      <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-14 bg-gray-600'>
       {loading ? (
         <Loader />
       ) : (
         books.length > 0 ? (
           books.map((book, index) => (
-            <div key={book._id} className="w-[40%] bg-white p-4 rounded-lg">
+            <div key={book._id} className="w-min bg-white p-4 rounded-lg">
               
             {book.imageUrl1 && <img src={book.imageUrl1} alt={`Cover image 1 for ${book.title}`} />}
             <p classname="font-bold" > {index + 1} : {book.title}  </p>
