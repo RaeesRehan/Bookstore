@@ -34,18 +34,31 @@ const BookDetails = () => {
 
   {   console.log(book.imageUrl1, book.imageUrl2, book.pdfUrl);}
   return (
-    <div className="p-4 grid place-items-center gap-4 text-white">
-      <h1>Book Details</h1>
-      <h3>{book._id}</h3>
+    <div className="grid p-0 h-[100vh] w-full text-black bg-cover bg-center "
+    style={{
+      backgroundImage: `url(${book.imageUrl1})`, 
+    }}  >
+      <div className="backdrop-blur-md flex items-center justify-center">
+        <div className="border-white  border-2 rounded-lg bg-gray-200 bg-opacity-35 w-3/4 p-4">
+      <span className="flex justify-between">
+
+      <img src={book.imageUrl2} className="w-1/3" alt={`Cover image 2 for ${book.title}`} />
+
+      <span>
+
+      <h3 className="">{book._id}</h3>
       <h3>{book.title}</h3>
       <h3>{book.author}</h3>
+      </span>
+      </span>
       <p>Genre: {book.genre}</p>
       <p>Copies: {book.copies}</p>
-      {book.imageUrl1 && <img src={book.imageUrl1} alt={`Cover image 1 for ${book.title}`} />}
-      {book.imageUrl2 && <img src={book.imageUrl2} alt={`Cover image 2 for ${book.title}`} />}
       {book.pdfUrl && <a href={book.pdfUrl} target="_blank" rel="noopener noreferrer">Download PDF</a>}
       <p>Created At: {book.createdAt }</p>
+     { console.log(book.createdAt)}
       <p>Updated At: {book.updatedAt }</p>
+        </div>
+      </div>
     </div>
   );
 }
