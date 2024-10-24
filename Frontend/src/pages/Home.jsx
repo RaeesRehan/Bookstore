@@ -56,7 +56,7 @@ const Home = () => {
 
     </Splide>
 
-    <div className="bg-themeBlue min-h-[100vh] p-4 grid place-items-center gap-4">
+    <div className="bg-blurbg bg-cover   min-h-[100vh] p-4 grid place-items-center gap-4">
    
    <div className="text-white"> Create New Book 
         <Link to={`/books/create/`} >
@@ -69,34 +69,38 @@ const Home = () => {
             </Link>
         </div>
 
-      <div className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-14 bg-gray-600'>
+      <div className='text-white flex justify-center flex-wrap gap-10 '>
       {loading ? (
         <Loader />
       ) : (
         books.length > 0 ? (
           books.map((book, index) => (
-            <div key={book._id} className="w-min bg-white p-4 rounded-lg">
+
+            <div key={book._id} className="w-min shadow-[#80e6ff] shadow-md bg-slate-200 bg-opacity-50 backdrop-filter backdrop-blur-lg p-4 rounded-lg">
               
-            {book.imageUrl1 && <img src={book.imageUrl1} alt={`Cover image 1 for ${book.title}`} />}
+            {book.imageUrl1 && <img src={book.imageUrl1} className='m-auto w-full' alt={`Cover image 1 for ${book.title}`} />}
             <p classname="font-bold" > {index + 1} : {book.title}  </p>
             <p>{book.genre}</p>
               <span className="flex justify-between">
 
-            <Link to={`/books/delete/${book._id}`}  > <button
+            <Link to={`/books/delete/${book._id}`}  > 
+            <button
           class="text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           type="button"
         >
           Delete
         </button>
             </Link>
-            <Link to={`/books/update/${book._id}`}  >  <button
+            <Link to={`/books/update/${book._id}`}  > 
+             <button
           class="text-white bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-400/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           type="button"
         >
           Update
         </button>
             </Link>
-            <Link to={`/books/details/${book._id}`} > <button
+            <Link to={`/books/details/${book._id}`} > 
+            <button
           class="text-white bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           type="button"
         >

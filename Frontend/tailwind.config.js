@@ -8,6 +8,9 @@ export default {
     extend: {
       colors:{
         themeBlue: '#003049',
+      },
+      backgroundImage:{
+        blurbg: 'url(/src/assets/blurbg.jpg)'
       }
     },
   },
